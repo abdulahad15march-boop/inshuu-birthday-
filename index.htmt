@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Inshuu 💟</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #fff0f5, #f9dce8, #fceef4);
+    color: #773d58;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+section {
+    min-height: 100vh;
+    padding: 70px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: clamp(2.4rem, 8vw, 4.5rem);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 6vw, 2.8rem);
+    margin-bottom: 25px;
+}
+
+p {
+    line-height: 1.9;
+}
+
+button {
+    border: none;
+    padding: 14px 26px;
+    margin: 12px;
+    border-radius: 30px;
+    background: #d76b9a;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px #d76b9a40;
+}
+
+button:hover {
+    background: #b94e7d;
+    transform: translateY(-3px);
+}
+
+.card {
+    width: min(650px, 100%);
+    background: #ffffffc9;
+    border: 1px solid #ffffff;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 35px #a94d7430;
+}
+
+#letter {
+    display: none;
+}
+
+.letter-text {
+    white-space: pre-line;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 2;
+}
+
+.envelope {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.cake {
+    font-size: 6rem;
+    margin: 20px;
+}
+
+.candles {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+#surpriseMessage {
+    display: none;
+    font-size: 1.4rem;
+    line-height: 1.9;
+    margin-top: 25px;
+}
+
+.music-button {
+    position: fixed;
+    top: 15px;
+    right: 12px;
+    z-index: 10;
+    margin: 0;
+    padding: 10px 16px;
+    font-size: 0.9rem;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    pointer-events: none;
+    animation: rise linear forwards;
+    z-index: 5;
+}
+
+@keyframes rise {
+    to {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+.confetti {
+    position: fixed;
+    top: -15px;
+    width: 9px;
+    height: 13px;
+    pointer-events: none;
+    z-index: 20;
+    animation: fall 3.5s linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+footer {
+    padding: 25px;
+    font-size: 0.9rem;
+    color: #9b607a;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="birthdayMusic" loop>
+    <source src="https://sunny-magenta-kfxjf15a.edgeone.dev/" type="audio/mpeg">
+</audio>
+
+<button class="music-button" onclick="toggleMusic()" id="musicButton">
+    🎵 Play Music
+</button>
+
+<!-- WELCOME SCREEN -->
+<section id="welcome">
+    <div class="envelope">💌</div>
+
+    <h1>Happy Birthday, Inshuu! 💟</h1>
+
+    <p style="font-size: 1.2rem; margin-bottom: 20px;">
+        A little something made just for you ♡
+    </p>
+
+    <button onclick="openLetter()">
+        Open Your Letter 💌
+    </button>
+</section>
+
+<!-- LETTER: THE WISH IS ONLY HERE -->
+<section id="letter">
+    <h2>A Letter For You 💗</h2>
+
+    <div class="card">
+        <p class="letter-text">Happi birthday finee shytt 💟
+
+Idk how to yapp or wish someone anyway who caress, but i genuinely feel lucky that I join that GC.
+
+i pray that Allah ta'ala tumhe hamesha khush rakhein, tumhari zindagi ko sukoon, barkat aur beinteha khushiyon se bhar dein, tumhe har woh cheez ata karein jo tumhare dil ke liye behtar ho, aur tumhe duniya aur aakhirat dono mein kamiyabiyan naseeb karein.(A big ameenn)
+
+Allah tumhari har achi dua qabool karein, tumhare liye har mushkil asaan karein, aur tumhe hamesha un cheezon se nawazein jo tumhare liye best hon.
+
+i hope this new chapter of your life brings you closer to Allah ta'ala, gives you countless reasons to smile, and fills your heart with a kind of peace that stays even on the depressed dayzz.
+
+may Allah always protect you.
+
+AMEEN💟</p>
+    </div>
+
+    <button onclick="goToCake()">
+        One More Thing 🎂
+    </button>
+</section>
+
+<!-- VIRTUAL BIRTHDAY CAKE -->
+<section id="cakeSection">
+    <h2>A Little Birthday Cake 🎂</h2>
+
+    <p>Make a wish, Inshuu! 💗</p>
+
+    <div class="candles" id="candles">🕯️ 🕯️ 🕯️</div>
+    <div class="cake">🎂</div>
+
+    <button onclick="blowCandles()">
+        Blow Out the Candles ✨
+    </button>
+
+    <button onclick="showSurprise()">
+        Your Final Surprise 💌
+    </button>
+
+    <div class="card" id="surpriseMessage">
+        <p>
+            May your days be filled with happiness,
+            your heart with peace, and your life with
+            countless blessings. 💗
+        </p>
+
+        <p style="margin-top: 15px;">
+            Keep smiling, keep being yourself,
+            and may Allah always guide and protect you.
+            Ameen. 💟
+        </p>
+
+        <p style="margin-top: 20px;">
+            Happy Birthday once again, Inshuu! 🎀
+        </p>
+
+        <div style="font-size: 2rem; margin-top: 15px;">
+            💗 🎂 💗
+        </div>
+    </div>
+</section>
+
+<footer>
+    Made with love and duas 💟
+</footer>
+
+<script>
+function openLetter() {
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("letter").style.display = "flex";
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    makeHearts();
+}
+
+function goToCake() {
+    document.getElementById("cakeSection").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    confettiBurst();
+}
+
+function blowCandles() {
+    document.getElementById("candles").textContent = "💨 ✨ 💨";
+
+    confettiBurst();
+
+    setTimeout(() => {
+        document.getElementById("candles").textContent = "🎉 🎉 🎉";
+    }, 1500);
+}
+
+function showSurprise() {
+    document.getElementById("surpriseMessage").style.display = "block";
+
+    confettiBurst();
+
+    document.getElementById("surpriseMessage").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+}
+
+function toggleMusic() {
+    const music = document.getElementById("birthdayMusic");
+    const button = document.getElementById("musicButton");
+
+    if (music.paused) {
+        music.play().then(() => {
+            button.textContent = "⏸ Pause Music";
+        }).catch(() => {
+            alert("Please make sure music.mp3 is in the same folder as index.html.");
+        });
+    } else {
+        music.pause();
+        button.textContent = "🎵 Play Music";
+    }
+}
+
+function makeHearts() {
+    const symbols = ["💗", "💖", "💕", "💓", "💞"];
+
+    for (let i = 0; i < 18; i++) {
+        setTimeout(() => {
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+            heart.textContent = symbols[
+                Math.floor(Math.random() * symbols.length)
+            ];
+
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (16 + Math.random() * 22) + "px";
+            heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 8500);
+        }, i * 180);
+    }
+}
+
+function confettiBurst() {
+    const colors = ["#e77ca6", "#f4c2d7", "#d7a3e0", "#f5d76e", "#ffffff"];
+
+    for (let i = 0; i < 100; i++) {
+        const piece = document.createElement("div");
+
+        piece.className = "confetti";
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.backgroundColor = colors[
+            Math.floor(Math.random() * colors.length)
+        ];
+        piece.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+        document.body.appendChild(piece);
+
+        setTimeout(() => piece.remove(), 5500);
+    }
+}
+
+setInterval(makeHearts, 7000);
+</script>
+
+</body>
+</html>
